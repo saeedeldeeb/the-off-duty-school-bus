@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "Sb5325k9NEeyxp1HJu1SOHKSkGwhLJ2/iC/fGnC9PGkJuQhzDNfM/rOiRbgpL/+H1rJeSU39ts1ric3qhDfipg==",
+  "success": true,
+  "projectFilePath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Presentation.API/BusManagement.Presentation.API.csproj",
+  "expectedPackageFiles": [
+    "/home/eldeeb/.nuget/packages/microsoft.aspnetcore.openapi/8.0.3/microsoft.aspnetcore.openapi.8.0.3.nupkg.sha512",
+    "/home/eldeeb/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/home/eldeeb/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/home/eldeeb/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "/home/eldeeb/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "/home/eldeeb/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "/home/eldeeb/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}

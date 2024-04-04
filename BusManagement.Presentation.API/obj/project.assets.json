@@ -460,19 +460,19 @@
     ]
   },
   "packageFolders": {
-    "/root/.nuget/packages/": {}
+    "/home/eldeeb/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/app/BusManagement.Presentation.API/BusManagement.Presentation.API.csproj",
+      "projectUniqueName": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Presentation.API/BusManagement.Presentation.API.csproj",
       "projectName": "BusManagement.Presentation.API",
-      "projectPath": "/app/BusManagement.Presentation.API/BusManagement.Presentation.API.csproj",
-      "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/app/BusManagement.Presentation.API/obj/",
+      "projectPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Presentation.API/BusManagement.Presentation.API.csproj",
+      "packagesPath": "/home/eldeeb/.nuget/packages/",
+      "outputPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Presentation.API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/root/.nuget/NuGet/NuGet.Config"
+        "/home/eldeeb/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -490,11 +490,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -529,7 +524,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.103/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

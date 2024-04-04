@@ -4,14 +4,14 @@
     "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Data/BusManagement.Core.Data.csproj": {}
   },
   "projects": {
-    "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Data/BusManagement.Core.Data.csproj": {
+    "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Common/BusManagement.Core.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Data/BusManagement.Core.Data.csproj",
-        "projectName": "BusManagement.Core.Data",
-        "projectPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Data/BusManagement.Core.Data.csproj",
+        "projectUniqueName": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Common/BusManagement.Core.Common.csproj",
+        "projectName": "BusManagement.Core.Common",
+        "projectPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Common/BusManagement.Core.Common.csproj",
         "packagesPath": "/home/eldeeb/.nuget/packages/",
-        "outputPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Data/obj/",
+        "outputPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Common/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/eldeeb/.nuget/NuGet/NuGet.Config"
@@ -37,6 +37,69 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.103/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Data/BusManagement.Core.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Data/BusManagement.Core.Data.csproj",
+        "projectName": "BusManagement.Core.Data",
+        "projectPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Data/BusManagement.Core.Data.csproj",
+        "packagesPath": "/home/eldeeb/.nuget/packages/",
+        "outputPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Data/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/eldeeb/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Common/BusManagement.Core.Common.csproj": {
+                "projectPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Common/BusManagement.Core.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -10,6 +10,7 @@ public class Company : IEntity<Guid>, ICreatingTimeStamp, IUpdatingTimeStamp
     public Point Location { get; set; }
     public string? Email { get; set; }
     public Guid EmployeeId { get; set; }
+    public ApplicationUser Employee { get; set; }
     public DateTime CreationDateTime { get; set; }
     public DateTime? ModificationDateTime { get; set; }
 }

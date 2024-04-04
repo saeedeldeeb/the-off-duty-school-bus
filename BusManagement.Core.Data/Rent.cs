@@ -10,6 +10,7 @@ public class Rent : IEntity<Guid>, ICreatingTimeStamp, IUpdatingTimeStamp
     public DateTime To { get; set; }
     public Guid VehicleId { get; set; }
     public Guid UserId { get; set; }
+    public ApplicationUser User { get; set; }
     public RentStatusEnum Status { get; set; }
     public DateTime CreationDateTime { get; set; }
     public DateTime? ModificationDateTime { get; set; }

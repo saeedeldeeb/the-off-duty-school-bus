@@ -1,7 +1,7 @@
 using BusManagement.Core.Common.Enums;
 using Microsoft.AspNetCore.Identity;
 
-namespace BusManagement.Infrastructure.Context;
+namespace BusManagement.Core.Data;
 
 public class ApplicationUser : IdentityUser
 {

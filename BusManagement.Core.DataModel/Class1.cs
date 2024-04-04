@@ -1,5 +1,3 @@
 ﻿namespace BusManagement.Core.DataModel;
 
-public class Class1
-{
-}
+public class Class1 { }

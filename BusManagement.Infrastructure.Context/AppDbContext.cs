@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BusManagement.Infrastructure.Context;
 
-public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbContext<ApplicationUser>(options)
+public class AppDbContext(DbContextOptions<AppDbContext> options)
+    : IdentityDbContext<ApplicationUser>(options)
 {
     #region DBSet
 

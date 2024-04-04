@@ -14,6 +14,6 @@ services:
       - .:/app
       - /app/obj/ # <- directory won't be mounted
       - /app/bin/ # <- directory won't be mounted
-      - /app/HotReload.Sample.API/obj/ # <- directory won't be mounted
-      - /app/HotReload.Sample.API/bin/ # <- directory won't be mounted
+      - /app/BusManagement.Presentation.API/obj/ # <- directory won't be mounted
+      - /app/BusManagement.Presentation.API/bin/ # <- directory won't be mounted
   

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BusManagement.Presentation.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee285145e7889396107e0bbc813df510a1bebf11")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31189328916bb1fde751989647e129784a2f1139")]
 [assembly: System.Reflection.AssemblyProductAttribute("BusManagement.Presentation.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BusManagement.Presentation.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

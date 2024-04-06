@@ -16,4 +16,17 @@ services:
       - /app/bin/ # <- directory won't be mounted
       - /app/BusManagement.Presentation.API/obj/ # <- directory won't be mounted
       - /app/BusManagement.Presentation.API/bin/ # <- directory won't be mounted
+    depends_on:
+        - db
   
+  db:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    container_name: ${DB_CONTAINER_NAME}
+    user: root
+    ports:
+      - "${DB_CONTAINER_PORT}:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${DB_SA_PASSWORD}
+    volumes:
+      - .docker/dbdata:/var/opt/mssql/data

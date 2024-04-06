@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BusManagement.Core.DataModel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e88cd35875f1f4df9959740f1e51ce201e1cd306")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1dd1f15c4f9ab9f68b08932bc8151cbd503a426")]
 [assembly: System.Reflection.AssemblyProductAttribute("BusManagement.Core.DataModel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BusManagement.Core.DataModel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

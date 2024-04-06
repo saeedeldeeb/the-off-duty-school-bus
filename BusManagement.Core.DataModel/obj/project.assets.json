@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "/root/.nuget/packages/": {}
+    "/home/eldeeb/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/app/BusManagement.Core.DataModel/BusManagement.Core.DataModel.csproj",
+      "projectUniqueName": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.DataModel/BusManagement.Core.DataModel.csproj",
       "projectName": "BusManagement.Core.DataModel",
-      "projectPath": "/app/BusManagement.Core.DataModel/BusManagement.Core.DataModel.csproj",
-      "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/app/BusManagement.Core.DataModel/obj/",
+      "projectPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.DataModel/BusManagement.Core.DataModel.csproj",
+      "packagesPath": "/home/eldeeb/.nuget/packages/",
+      "outputPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.DataModel/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/root/.nuget/NuGet/NuGet.Config"
+        "/home/eldeeb/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -51,8 +51,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/app/BusManagement.Core.Common/BusManagement.Core.Common.csproj": {
-              "projectPath": "/app/BusManagement.Core.Common/BusManagement.Core.Common.csproj"
+            "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Common/BusManagement.Core.Common.csproj": {
+              "projectPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Common/BusManagement.Core.Common.csproj"
             }
           }
         }
@@ -61,11 +61,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -87,7 +82,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.103/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -21,6 +21,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        base.OnModelCreating(builder);
         foreach (var relation in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
         {
             relation.DeleteBehavior = DeleteBehavior.Restrict;

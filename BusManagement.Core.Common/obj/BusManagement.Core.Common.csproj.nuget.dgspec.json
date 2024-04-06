@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/app/BusManagement.Core.Common/BusManagement.Core.Common.csproj": {}
+    "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Common/BusManagement.Core.Common.csproj": {}
   },
   "projects": {
-    "/app/BusManagement.Core.Common/BusManagement.Core.Common.csproj": {
+    "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Common/BusManagement.Core.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/app/BusManagement.Core.Common/BusManagement.Core.Common.csproj",
+        "projectUniqueName": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Common/BusManagement.Core.Common.csproj",
         "projectName": "BusManagement.Core.Common",
-        "projectPath": "/app/BusManagement.Core.Common/BusManagement.Core.Common.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/app/BusManagement.Core.Common/obj/",
+        "projectPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Common/BusManagement.Core.Common.csproj",
+        "packagesPath": "/home/eldeeb/.nuget/packages/",
+        "outputPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Common/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/eldeeb/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -58,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

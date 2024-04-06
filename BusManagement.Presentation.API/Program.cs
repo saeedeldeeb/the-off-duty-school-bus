@@ -15,5 +15,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapGet("/hello", () => "Hello World!");
+app.MapControllerRoute(name: "default", pattern: "{controller=Auth}/{action=Login}/{id?}");
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();

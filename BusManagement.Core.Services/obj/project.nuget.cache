@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+JGqhywFKeBxGbp61AN/mNcwi/sByLp1DsS8R9l4jiAgcKt/7zXQGWmm9Bv2HYMbrflKergtsJmquWc/jjKkOw==",
+  "dgSpecHash": "+USbmMDqyIHwbUygGzikgYc/jtfnhpBs+eDM29k2QAgBFY8H2g8DsBgAjYBMXT4E0hJXsFOtAHz93ybjs19l4w==",
   "success": true,
-  "projectFilePath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Core.Services/BusManagement.Core.Services.csproj",
+  "projectFilePath": "/app/BusManagement.Core.Services/BusManagement.Core.Services.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

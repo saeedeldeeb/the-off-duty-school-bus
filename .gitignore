@@ -368,3 +368,6 @@ FodyWeavers.xsd
 # Docker
 .docker
 .dockerignore
+
+**/bin
+**/obj

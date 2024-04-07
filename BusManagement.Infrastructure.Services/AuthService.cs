@@ -76,19 +76,13 @@ public class AuthService : IAuthService
             return authModel;
         }
 
-        if (!await _userManager.IsPhoneNumberConfirmedAsync(user))
-        {
-            authModel.Message = "Phone number is not confirmed!";
-            return authModel;
-        }
-
         var jwtSecurityToken = await CreateJwtToken(user);
         var rolesList = await _userManager.GetRolesAsync(user);
 
         authModel.IsAuthenticated = true;
         authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
-        authModel.Email = user.Email;
-        authModel.Username = user.UserName;
+        authModel.Email = user.Email ?? string.Empty;
+        authModel.Username = user.UserName ?? string.Empty;
         authModel.ExpiresOn = jwtSecurityToken.ValidTo;
         authModel.Roles = rolesList.ToList();
 

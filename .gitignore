@@ -364,3 +364,10 @@ FodyWeavers.xsd
 
 # Environment Specialization files
 .env
+
+# Docker
+.docker
+.dockerignore
+
+**/bin
+**/obj

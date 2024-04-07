@@ -34,8 +34,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusManagement.Infrastructur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusManagement.Infrastructure.DataStructureMapping", "BusManagement.Infrastructure.DataStructureMapping\BusManagement.Infrastructure.DataStructureMapping.csproj", "{B3AB28B8-DF08-4C12-85C8-5C34727B4B02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusManagement.Infrastructure.DependencyResolution", "BusManagement.Infrastructure.DependencyResolution\BusManagement.Infrastructure.DependencyResolution.csproj", "{662505DE-E88C-4570-8538-14999724C29B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusManagement.Presentation.API", "BusManagement.Presentation.API\BusManagement.Presentation.API.csproj", "{73EA696B-E864-4CBC-B89F-87289809F65C}"
 EndProject
 Global
@@ -59,7 +57,6 @@ Global
 		{D1CAD93C-9355-4292-BBF6-179D626F4D41} = {686A7FCA-2744-4C15-A229-28C8897CA781}
 		{50437D84-F68A-4079-BAA0-062862627A9B} = {686A7FCA-2744-4C15-A229-28C8897CA781}
 		{B3AB28B8-DF08-4C12-85C8-5C34727B4B02} = {741C5A68-45DC-4219-AE94-8CAA429FFD17}
-		{662505DE-E88C-4570-8538-14999724C29B} = {741C5A68-45DC-4219-AE94-8CAA429FFD17}
 		{73EA696B-E864-4CBC-B89F-87289809F65C} = {BE041B4A-7E0F-4503-A8E7-BDF84A17A16F}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
@@ -99,10 +96,6 @@ Global
 		{B3AB28B8-DF08-4C12-85C8-5C34727B4B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3AB28B8-DF08-4C12-85C8-5C34727B4B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3AB28B8-DF08-4C12-85C8-5C34727B4B02}.Release|Any CPU.Build.0 = Release|Any CPU
-		{662505DE-E88C-4570-8538-14999724C29B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{662505DE-E88C-4570-8538-14999724C29B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{662505DE-E88C-4570-8538-14999724C29B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{662505DE-E88C-4570-8538-14999724C29B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{73EA696B-E864-4CBC-B89F-87289809F65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{73EA696B-E864-4CBC-B89F-87289809F65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73EA696B-E864-4CBC-B89F-87289809F65C}.Release|Any CPU.ActiveCfg = Release|Any CPU

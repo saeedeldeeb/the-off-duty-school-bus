@@ -28,4 +28,11 @@ public class RegisterDTO
         )
     ]
     public string PhoneNumber { get; set; }
+
+    [Required]
+    [RegularExpression(
+        "^(CompanyTransportationManager|SchoolTransportationManager)$",
+        ErrorMessage = "Role must be either 'Company Transportation Manager' or 'School Transportation Manager'"
+    )]
+    public string Role { get; set; }
 }

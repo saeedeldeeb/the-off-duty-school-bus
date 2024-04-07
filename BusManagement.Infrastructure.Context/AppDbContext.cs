@@ -1,4 +1,5 @@
 using BusManagement.Core.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,5 +27,27 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
         {
             relation.DeleteBehavior = DeleteBehavior.Restrict;
         }
+
+        // Seed Data
+        const string schoolTransportationManager = "fcdb4a01-a1be-4d5b-92e4-08b1163f47c7";
+        const string companyTransportationManager = "0de8240e-0bfc-492d-9758-d041c1314812";
+        builder
+            .Entity<IdentityRole>()
+            .HasData(
+                new IdentityRole
+                {
+                    Id = schoolTransportationManager,
+                    Name = "SchoolTransportationManager",
+                    NormalizedName = "SCHOOLTRANSPORTATIONMANAGER",
+                    ConcurrencyStamp = "217ca5d6-29ce-4c73-8b92-de50c09f97f0"
+                },
+                new IdentityRole
+                {
+                    Id = companyTransportationManager,
+                    Name = "CompanyTransportationManager",
+                    NormalizedName = "COMPANYTRANSPORTATIONMANAGER",
+                    ConcurrencyStamp = "678e1b6a-9a0c-4fdd-8bca-130ee693e2ae"
+                }
+            );
     }
 }

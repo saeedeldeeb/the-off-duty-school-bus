@@ -1,24 +1,8 @@
-using BusManagement.Infrastructure.Context;
-using Microsoft.EntityFrameworkCore;
+using BusManagement.Presentation.API;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString =
-    builder.Configuration.GetConnectionString("OffDutyDbContextConnection")
-    ?? throw new InvalidOperationException(
-        "Connection string 'OffDutyDbContextConnection' not found."
-    );
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(connectionString, x => x.UseNetTopologySuite())
-);
-builder.Services.AddControllers();
-
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
+var app = builder.ConfigureServices();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

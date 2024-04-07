@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using BusManagement.Core.Common.Helpers;
+using BusManagement.Core.Data;
 using BusManagement.Core.DataModel.DTOs;
 using BusManagement.Core.DataModel.ViewModels;
 using BusManagement.Core.Services;
@@ -13,10 +14,10 @@ namespace BusManagement.Infrastructure.Services;
 
 public class AuthService : IAuthService
 {
-    private readonly UserManager<IdentityUser> _userManager;
+    private readonly UserManager<ApplicationUser> _userManager;
     private readonly JWT _jwt;
 
-    public AuthService(UserManager<IdentityUser> userManager, IOptions<JWT> jwt)
+    public AuthService(UserManager<ApplicationUser> userManager, IOptions<JWT> jwt)
     {
         _userManager = userManager;
         _jwt = jwt.Value;
@@ -27,7 +28,14 @@ public class AuthService : IAuthService
         if (await _userManager.FindByEmailAsync(model.Email) is not null)
             return new AuthorizedVM { Message = "Email is already registered!" };
 
-        var user = new IdentityUser { Email = model.Email, PhoneNumber = model.PhoneNumber };
+        var user = new ApplicationUser
+        {
+            Name = model.Name,
+            Gender = model.Gender,
+            Email = model.Email,
+            PhoneNumber = model.PhoneNumber,
+            UserName = model.Email.Split('@')[0]
+        };
 
         var result = await _userManager.CreateAsync(user, model.Password);
 
@@ -41,7 +49,7 @@ public class AuthService : IAuthService
             return new AuthorizedVM { Message = errors };
         }
 
-        await _userManager.AddToRoleAsync(user, "User");
+        await _userManager.AddToRoleAsync(user, model.Role);
 
         var jwtSecurityToken = await CreateJwtToken(user);
 
@@ -50,7 +58,7 @@ public class AuthService : IAuthService
             Email = user.Email,
             ExpiresOn = jwtSecurityToken.ValidTo,
             IsAuthenticated = true,
-            Roles = ["User"],
+            Roles = [model.Role],
             Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
             Username = user.UserName
         };
@@ -87,7 +95,7 @@ public class AuthService : IAuthService
         return authModel;
     }
 
-    private async Task<JwtSecurityToken> CreateJwtToken(IdentityUser user)
+    private async Task<JwtSecurityToken> CreateJwtToken(ApplicationUser user)
     {
         var userClaims = await _userManager.GetClaimsAsync(user);
         var roles = await _userManager.GetRolesAsync(user);

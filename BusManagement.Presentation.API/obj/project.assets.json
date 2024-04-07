@@ -3012,6 +3012,20 @@
         "runtime": {
           "bin/placeholder/BusManagement.Infrastructure.Context.dll": {}
         }
+      },
+      "BusManagement.Infrastructure.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "BusManagement.Core.Services": "1.0.0",
+          "BusManagement.Infrastructure.Context": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusManagement.Infrastructure.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusManagement.Infrastructure.Services.dll": {}
+        }
       }
     }
   },
@@ -8343,6 +8357,11 @@
       "type": "project",
       "path": "../BusManagement.Infrastructure.Context/BusManagement.Infrastructure.Context.csproj",
       "msbuildProject": "../BusManagement.Infrastructure.Context/BusManagement.Infrastructure.Context.csproj"
+    },
+    "BusManagement.Infrastructure.Services/1.0.0": {
+      "type": "project",
+      "path": "../BusManagement.Infrastructure.Services/BusManagement.Infrastructure.Services.csproj",
+      "msbuildProject": "../BusManagement.Infrastructure.Services/BusManagement.Infrastructure.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -8350,6 +8369,7 @@
       "BusManagement.Core.DataModel >= 1.0.0",
       "BusManagement.Core.Services >= 1.0.0",
       "BusManagement.Infrastructure.Context >= 1.0.0",
+      "BusManagement.Infrastructure.Services >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 8.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.3",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.2",
@@ -8389,6 +8409,9 @@
             },
             "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Infrastructure.Context/BusManagement.Infrastructure.Context.csproj": {
               "projectPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Infrastructure.Context/BusManagement.Infrastructure.Context.csproj"
+            },
+            "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Infrastructure.Services/BusManagement.Infrastructure.Services.csproj": {
+              "projectPath": "/media/eldeeb/HDD13/MyOwnProjects/rent-school-buses/OffDutySchoolBus.BusManagement/BusManagement.Infrastructure.Services/BusManagement.Infrastructure.Services.csproj"
             }
           }
         }

@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text;
 using BusManagement.Core.Common.Helpers;
 using BusManagement.Core.Data;
@@ -5,7 +6,9 @@ using BusManagement.Infrastructure.Context;
 using BusManagement.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BusManagement.Presentation.API;
@@ -53,8 +56,33 @@ public static class StartupExtensions
             });
 
         builder.Services.AddControllers();
-
+        builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+        builder.Services.AddDistributedMemoryCache();
+        builder
+            .Services.AddMvc()
+            .AddDataAnnotationsLocalization(options =>
+            {
+                options.DataAnnotationLocalizerProvider = (_, factory) =>
+                    factory.Create(typeof(JsonStringLocalizerFactory));
+            });
         // Add services to the container.
+        builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
+
+        builder.Services.AddLocalization();
+        builder.Services.AddDistributedMemoryCache();
+        builder
+            .Services.AddMvc()
+            .AddDataAnnotationsLocalization(options =>
+            {
+                options.DataAnnotationLocalizerProvider = (_, factory) =>
+                    factory.Create(typeof(JsonStringLocalizerFactory));
+            });
+        var supportedCultures = new[] { "ar-EG", "en-US" };
+        builder.Services.Configure<RequestLocalizationOptions>(options =>
+        {
+            options.DefaultRequestCulture = new RequestCulture(culture: new CultureInfo("ar-EG"));
+            options.SupportedCultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
+        });
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();

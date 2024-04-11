@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\BusManagement.Core.Repositories\BusManagement.Core.Repositories.csproj" />
+      <ProjectReference Include="..\BusManagement.Infrastructure.Context\BusManagement.Infrastructure.Context.csproj" />
+    </ItemGroup>
+
 </Project>

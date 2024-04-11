@@ -26,7 +26,7 @@ public class AuthService : IAuthService
     public async Task<AuthorizedVM> RegisterAsync(RegisterDTO model)
     {
         if (await _userManager.FindByEmailAsync(model.Email) is not null)
-            return new AuthorizedVM { Message = "Email is already registered!" };
+            return new AuthorizedVM { Message = "email_already_registered" };
 
         var user = new ApplicationUser
         {
@@ -72,7 +72,7 @@ public class AuthService : IAuthService
 
         if (user is null || !await _userManager.CheckPasswordAsync(user, model.Password))
         {
-            authModel.Message = "Email or Password is incorrect!";
+            authModel.Message = "email_or_password_invalid";
             return authModel;
         }
 

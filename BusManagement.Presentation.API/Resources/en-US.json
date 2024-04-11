@@ -1,0 +1,5 @@
+{
+  "email_already_registered": "Email is already registered!",
+  "email_or_password_invalid": "Email or password is invalid!",
+  "password_required": "Password is required!"
+}

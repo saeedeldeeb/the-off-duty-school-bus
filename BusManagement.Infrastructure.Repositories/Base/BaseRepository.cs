@@ -20,7 +20,7 @@ public class BaseRepository<T> : IBaseRepository<T>
         return _context.Set<T>().ToList();
     }
 
-    public async Task<IEnumerable<T>> GetAllAsync()
+    public virtual async Task<IEnumerable<T>> GetAllAsync()
     {
         return await _context.Set<T>().ToListAsync();
     }

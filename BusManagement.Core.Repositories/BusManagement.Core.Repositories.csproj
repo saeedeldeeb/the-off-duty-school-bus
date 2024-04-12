@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\BusManagement.Core.Data\BusManagement.Core.Data.csproj" />
+    </ItemGroup>
+
 </Project>

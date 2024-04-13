@@ -14,13 +14,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\BusManagement.Core.DataModel\BusManagement.Core.DataModel.csproj" />
       <ProjectReference Include="..\BusManagement.Core.Services\BusManagement.Core.Services.csproj" />
       <ProjectReference Include="..\BusManagement.Infrastructure.Context\BusManagement.Infrastructure.Context.csproj" />
+      <ProjectReference Include="..\BusManagement.Infrastructure.Repositories\BusManagement.Infrastructure.Repositories.csproj" />
       <ProjectReference Include="..\BusManagement.Infrastructure.Services\BusManagement.Infrastructure.Services.csproj" />
     </ItemGroup>
 

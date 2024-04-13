@@ -28,6 +28,11 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
             relation.DeleteBehavior = DeleteBehavior.Restrict;
         }
 
+        builder.Entity<VehicleBrandTranslation>(b =>
+        {
+            b.HasKey(x => new { x.VehicleBrandId, x.Language });
+        });
+
         // Seed Data
         const string schoolTransportationManager = "fcdb4a01-a1be-4d5b-92e4-08b1163f47c7";
         const string companyTransportationManager = "0de8240e-0bfc-492d-9758-d041c1314812";

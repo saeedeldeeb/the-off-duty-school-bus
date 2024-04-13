@@ -8,6 +8,7 @@ public static class InfrastructureServiceRegistration
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
     {
         services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<IVehicleBrandService, VehicleBrandService>();
         return services;
     }
 }

@@ -3,6 +3,8 @@ using System.Text;
 using BusManagement.Core.Common.Helpers;
 using BusManagement.Core.Data;
 using BusManagement.Infrastructure.Context;
+using BusManagement.Infrastructure.DataStructureMapping;
+using BusManagement.Infrastructure.Repositories;
 using BusManagement.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -18,6 +20,7 @@ public static class StartupExtensions
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddInfrastructureServices();
+        builder.Services.AddInfrastructureRepositories();
         var connectionString =
             builder.Configuration.GetConnectionString("OffDutyDbContextConnection")
             ?? throw new InvalidOperationException(
@@ -66,6 +69,8 @@ public static class StartupExtensions
                     factory.Create(typeof(JsonStringLocalizerFactory));
             });
         // Add services to the container.
+        StructureMapper.Initialize();
+        builder.Services.AddAutoMapper(typeof(Program).Assembly);
         builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
 
         builder.Services.AddLocalization();

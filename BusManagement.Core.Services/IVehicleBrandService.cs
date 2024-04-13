@@ -5,7 +5,7 @@ namespace BusManagement.Core.Services;
 public interface IVehicleBrandService
 {
     Task<IEnumerable<BrandVM>> GetAll();
-    BrandVM GetById(Guid id);
+    Task<BrandVM> GetById(Guid id);
     BrandVM Add(BrandVM brand);
     BrandVM Update(BrandVM brand);
     void Delete(Guid id);

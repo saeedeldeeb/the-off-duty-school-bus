@@ -29,9 +29,10 @@ public class VehicleBrandService : IVehicleBrandService
         return brands.Parse<IEnumerable<VehicleBrand>, IEnumerable<BrandVM>>();
     }
 
-    public BrandVM GetById(Guid id)
+    public async Task<BrandVM> GetById(Guid id)
     {
-        throw new NotImplementedException();
+        var brand = await _brandRepository.FindAsync(x => x.Id == id, ["Translations"]);
+        return brand.Parse<VehicleBrand, BrandVM>();
     }
 
     public BrandVM Add(BrandVM brand)

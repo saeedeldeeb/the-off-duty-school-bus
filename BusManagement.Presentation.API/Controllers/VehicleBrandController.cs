@@ -20,4 +20,11 @@ public class VehicleBrandController : ControllerBase
         var brands = await _brandService.GetAll();
         return Ok(brands);
     }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(Guid id)
+    {
+        var brand = await _brandService.GetById(id);
+        return Ok(brand);
+    }
 }

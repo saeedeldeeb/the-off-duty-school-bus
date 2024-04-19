@@ -35,4 +35,11 @@ public class VehicleBrandController : ControllerBase
         var newBrand = _brandService.Add(brand);
         return CreatedAtAction(nameof(GetById), new { id = newBrand.Id }, newBrand);
     }
+
+    [HttpPut("{id}")]
+    public IActionResult Update([FromBody] BrandDTO brand, Guid id)
+    {
+        var updatedBrand = _brandService.Update(brand, id);
+        return Ok(updatedBrand);
+    }
 }

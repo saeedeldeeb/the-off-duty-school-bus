@@ -44,9 +44,12 @@ public class VehicleBrandService : IVehicleBrandService
         return brand.Parse<VehicleBrand, BrandVM>();
     }
 
-    public BrandVM Update(BrandDTO brand)
+    public BrandVM Update(BrandDTO brand, Guid id)
     {
-        throw new NotImplementedException();
+        var brandEntity = brand.Parse<BrandDTO, VehicleBrand>();
+        var updatedBrand = _brandRepository.Update(brandEntity, id);
+        _unitOfWork.Complete();
+        return updatedBrand.Parse<VehicleBrand, BrandVM>();
     }
 
     public void Delete(Guid id)

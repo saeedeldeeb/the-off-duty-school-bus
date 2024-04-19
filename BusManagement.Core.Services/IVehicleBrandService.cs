@@ -8,6 +8,6 @@ public interface IVehicleBrandService
     Task<IEnumerable<BrandVM>> GetAll();
     Task<BrandVM> GetById(Guid id);
     BrandVM Add(BrandDTO brand);
-    BrandVM Update(BrandDTO brand);
+    BrandVM Update(BrandDTO brand, Guid id);
     void Delete(Guid id);
 }

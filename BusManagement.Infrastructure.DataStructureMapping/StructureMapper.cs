@@ -1,6 +1,7 @@
 using AutoMapper;
 using BusManagement.Core.Data;
 using BusManagement.Core.Data.MultiLingualObjects;
+using BusManagement.Core.DataModel.DTOs;
 using BusManagement.Core.DataModel.ViewModels;
 
 namespace BusManagement.Infrastructure.DataStructureMapping;
@@ -28,6 +29,9 @@ public static class StructureMapper
                                 .Result.Name
                         )
                 );
+            cfg.CreateMap<TranslationDTO, VehicleBrandTranslation>();
+            cfg.CreateMap<BrandDTO, VehicleBrand>()
+                .ForMember(dest => dest.Translations, opt => opt.MapFrom(src => src.Translations));
         });
 
         _mapper = config.CreateMapper();

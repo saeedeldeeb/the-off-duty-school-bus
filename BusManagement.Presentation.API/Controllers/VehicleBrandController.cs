@@ -1,3 +1,4 @@
+using BusManagement.Core.DataModel.DTOs;
 using BusManagement.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,5 +27,12 @@ public class VehicleBrandController : ControllerBase
     {
         var brand = await _brandService.GetById(id);
         return Ok(brand);
+    }
+
+    [HttpPost]
+    public IActionResult Add([FromBody] BrandDTO brand)
+    {
+        var newBrand = _brandService.Add(brand);
+        return CreatedAtAction(nameof(GetById), new { id = newBrand.Id }, newBrand);
     }
 }

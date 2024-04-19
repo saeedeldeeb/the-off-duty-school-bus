@@ -1,5 +1,6 @@
 using AutoMapper;
 using BusManagement.Core.Data;
+using BusManagement.Core.DataModel.DTOs;
 using BusManagement.Core.DataModel.ViewModels;
 using BusManagement.Core.Repositories;
 using BusManagement.Core.Repositories.Base;
@@ -35,12 +36,15 @@ public class VehicleBrandService : IVehicleBrandService
         return brand.Parse<VehicleBrand, BrandVM>();
     }
 
-    public BrandVM Add(BrandVM brand)
+    public BrandVM Add(BrandDTO brandDto)
     {
-        throw new NotImplementedException();
+        var brandEntity = brandDto.Parse<BrandDTO, VehicleBrand>();
+        var brand = _brandRepository.Add(brandEntity);
+        _unitOfWork.Complete();
+        return brand.Parse<VehicleBrand, BrandVM>();
     }
 
-    public BrandVM Update(BrandVM brand)
+    public BrandVM Update(BrandDTO brand)
     {
         throw new NotImplementedException();
     }

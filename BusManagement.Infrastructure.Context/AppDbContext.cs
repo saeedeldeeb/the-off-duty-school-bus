@@ -1,3 +1,4 @@
+using BusManagement.Core.Common.Enums;
 using BusManagement.Core.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -42,15 +43,15 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
                 new IdentityRole
                 {
                     Id = schoolTransportationManager,
-                    Name = "SchoolTransportationManager",
-                    NormalizedName = "SCHOOLTRANSPORTATIONMANAGER",
+                    Name = RoleEnum.SchoolTransportationManager.ToString(),
+                    NormalizedName = RoleEnum.SchoolTransportationManager.ToString().ToUpper(),
                     ConcurrencyStamp = "217ca5d6-29ce-4c73-8b92-de50c09f97f0"
                 },
                 new IdentityRole
                 {
                     Id = companyTransportationManager,
-                    Name = "CompanyTransportationManager",
-                    NormalizedName = "COMPANYTRANSPORTATIONMANAGER",
+                    Name = RoleEnum.CompanyTransportationManager.ToString(),
+                    NormalizedName = RoleEnum.CompanyTransportationManager.ToString().ToUpper(),
                     ConcurrencyStamp = "678e1b6a-9a0c-4fdd-8bca-130ee693e2ae"
                 }
             );

@@ -1,11 +1,13 @@
 using BusManagement.Core.DataModel.DTOs;
 using BusManagement.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BusManagement.Presentation.API.Controllers;
 
 [Route("api/vehicle-brands")]
 [ApiController]
+[Authorize(Roles = "SchoolTransportationManager")]
 public class VehicleBrandController : ControllerBase
 {
     private readonly IVehicleBrandService _brandService;

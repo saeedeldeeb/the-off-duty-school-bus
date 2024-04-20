@@ -25,12 +25,12 @@ public class BaseRepository<T> : IBaseRepository<T>
         return await _context.Set<T>().ToListAsync();
     }
 
-    public T? GetById(int id)
+    public T? GetById(Guid id)
     {
         return _context.Set<T>().Find(id);
     }
 
-    public async Task<T?> GetByIdAsync(int id)
+    public async Task<T?> GetByIdAsync(Guid id)
     {
         return await _context.Set<T>().FindAsync(id);
     }
@@ -164,10 +164,22 @@ public class BaseRepository<T> : IBaseRepository<T>
         return entities;
     }
 
-    public T Update(T entity)
+    public virtual T Update(T entity, Guid id)
     {
-        _context.Update(entity);
-        return entity;
+        // Fetch the entity from the database using the provided id
+        var existingEntity = GetById(id);
+
+        if (existingEntity != null)
+        {
+            // Update the properties of the fetched entity with the properties of the provided entity
+            _context.Entry(existingEntity).CurrentValues.SetValues(entity);
+        }
+        else
+        {
+            throw new Exception("Entity not found");
+        }
+
+        return existingEntity;
     }
 
     public void Delete(T entity)

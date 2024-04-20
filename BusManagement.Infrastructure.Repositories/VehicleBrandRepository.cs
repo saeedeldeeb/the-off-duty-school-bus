@@ -20,4 +20,18 @@ public class VehicleBrandRepository : BaseRepository<VehicleBrand>, IVehicleBran
     {
         return await _context.VehicleBrands.Include(i => i.Translations).ToListAsync();
     }
+
+    public override VehicleBrand Update(VehicleBrand entity, Guid id)
+    {
+        var brand = Find(x => x.Id == id, ["Translations"]);
+        if (brand == null)
+            throw new Exception("Brand not found");
+
+        brand.Translations.Clear();
+        brand.Translations = entity.Translations;
+        brand.ModificationDateTime = DateTime.Now;
+
+        _context.VehicleBrands.Update(brand);
+        return brand;
+    }
 }

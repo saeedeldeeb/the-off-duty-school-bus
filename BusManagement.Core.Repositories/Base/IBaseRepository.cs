@@ -5,8 +5,8 @@ namespace BusManagement.Core.Repositories.Base;
 public interface IBaseRepository<T>
     where T : class
 {
-    T? GetById(int id);
-    Task<T?> GetByIdAsync(int id);
+    T? GetById(Guid id);
+    Task<T?> GetByIdAsync(Guid id);
     IEnumerable<T> GetAll();
     Task<IEnumerable<T>> GetAllAsync();
     T? Find(Expression<Func<T?, bool>> criteria, string[]? includes = null);
@@ -40,7 +40,7 @@ public interface IBaseRepository<T>
     Task<T> AddAsync(T entity);
     IEnumerable<T> AddRange(IEnumerable<T> entities);
     Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities);
-    T Update(T entity);
+    T Update(T entity, Guid id);
     void Delete(T entity);
     void DeleteRange(IEnumerable<T> entities);
     void Attach(T entity);

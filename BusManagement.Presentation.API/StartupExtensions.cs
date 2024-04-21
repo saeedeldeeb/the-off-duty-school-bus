@@ -6,7 +6,9 @@ using BusManagement.Infrastructure.Context;
 using BusManagement.Infrastructure.DataStructureMapping;
 using BusManagement.Infrastructure.Repositories;
 using BusManagement.Infrastructure.Services;
+using BusManagement.Presentation.API.Filters;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +24,8 @@ public static class StartupExtensions
     {
         builder.Services.AddInfrastructureServices();
         builder.Services.AddInfrastructureRepositories();
+        builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
+        builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
         var connectionString =
             builder.Configuration.GetConnectionString("OffDutyDbContextConnection")
             ?? throw new InvalidOperationException(
@@ -31,7 +35,10 @@ public static class StartupExtensions
             options.UseSqlServer(connectionString, x => x.UseNetTopologySuite())
         );
         builder
-            .Services.AddIdentity<ApplicationUser, IdentityRole>()
+            .Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.ClaimsIdentity.UserIdClaimType = "uid";
+            })
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
         builder.Services.Configure<JWT>(builder.Configuration.GetSection("JWT"));

@@ -33,6 +33,12 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
         {
             b.HasKey(x => new { x.VehicleBrandId, x.Language });
         });
+        builder
+            .Entity<Vehicle>()
+            .HasOne(v => v.Brand)
+            .WithMany()
+            .HasForeignKey(v => v.BrandId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // Seed Data
         const string schoolTransportationManager = "fcdb4a01-a1be-4d5b-92e4-08b1163f47c7";

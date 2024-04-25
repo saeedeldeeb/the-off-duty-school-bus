@@ -1,4 +1,3 @@
-using AutoMapper;
 using BusManagement.Core.Data;
 using BusManagement.Core.DataModel.DTOs;
 using BusManagement.Core.DataModel.ViewModels;
@@ -14,11 +13,7 @@ public class VehicleBrandService : IVehicleBrandService
     private readonly IVehicleBrandRepository _brandRepository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public VehicleBrandService(
-        IVehicleBrandRepository brandRepository,
-        IUnitOfWork unitOfWork,
-        IMapper mapper
-    )
+    public VehicleBrandService(IVehicleBrandRepository brandRepository, IUnitOfWork unitOfWork)
     {
         _brandRepository = brandRepository;
         _unitOfWork = unitOfWork;

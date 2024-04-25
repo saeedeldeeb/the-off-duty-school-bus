@@ -1,6 +1,5 @@
 using BusManagement.Core.DataModel.DTOs;
 using BusManagement.Core.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 

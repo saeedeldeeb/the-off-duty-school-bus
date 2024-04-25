@@ -9,6 +9,7 @@ public static class InfrastructureServiceRegistration
     {
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IVehicleBrandService, VehicleBrandService>();
+        services.AddScoped<IVehicleService, VehicleService>();
         return services;
     }
 }

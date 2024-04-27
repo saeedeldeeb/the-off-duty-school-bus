@@ -13,6 +13,7 @@ public class VehicleDTO
     [Required]
     public int Capacity { get; set; }
 
+    // TODO: Swagger does not convert DateOnly type as string in the request body
     [Required]
     public DateOnly Year { get; set; }
 }

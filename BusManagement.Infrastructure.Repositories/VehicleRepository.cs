@@ -49,4 +49,13 @@ public class VehicleRepository : BaseRepository<Vehicle>, IVehicleRepository
             parameters.PageSize
         );
     }
+
+    public override Vehicle Update(Vehicle entity, Guid id)
+    {
+        entity.Id = id;
+        entity.ModificationDateTime = DateTime.Now;
+
+        _context.Vehicles.Update(entity);
+        return entity;
+    }
 }

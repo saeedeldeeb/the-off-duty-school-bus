@@ -74,6 +74,7 @@ public static class StartupExtensions
                 setupAction.SerializerSettings.ContractResolver =
                     new CamelCasePropertyNamesContractResolver();
             });
+        builder.Services.AddDateOnlyTimeOnlyStringConverters();
         builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
         builder.Services.AddDistributedMemoryCache();
         builder
@@ -136,6 +137,7 @@ public static class StartupExtensions
                     }
                 }
             );
+            opt.UseDateOnlyTimeOnlyStringConverters();
         });
         return builder.Build();
     }

@@ -62,6 +62,16 @@ public class VehicleService : IVehicleService
         return updatedVehicle.Parse<Vehicle, VehicleVM>();
     }
 
+    public VehicleVM PartialUpdate(VehicleDTO vehicle, Guid id)
+    {
+        var vehicleEntity = vehicle.Parse<VehicleDTO, Vehicle>();
+        vehicleEntity.Id = id;
+        var updatedVehicle = _vehicleRepository.Update(vehicleEntity, id);
+        _unitOfWork.Complete();
+
+        return updatedVehicle.Parse<Vehicle, VehicleVM>();
+    }
+
     public void Delete(Guid id)
     {
         var vehicle = _vehicleRepository.GetById(id);

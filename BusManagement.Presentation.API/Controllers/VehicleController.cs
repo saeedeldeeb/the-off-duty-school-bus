@@ -1,8 +1,12 @@
 using BusManagement.Core.Common.Constants;
+using BusManagement.Core.Data;
 using BusManagement.Core.DataModel.DTOs;
+using BusManagement.Core.Repositories;
 using BusManagement.Core.Services;
+using BusManagement.Infrastructure.DataStructureMapping;
 using BusManagement.Infrastructure.Repositories.ResourceParameters;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BusManagement.Presentation.API.Controllers;
@@ -13,10 +17,12 @@ namespace BusManagement.Presentation.API.Controllers;
 public class VehicleController : ControllerBase
 {
     private readonly IVehicleService _vehicleService;
+    private readonly IVehicleRepository _vehicleRepository;
 
-    public VehicleController(IVehicleService vehicleService)
+    public VehicleController(IVehicleService vehicleService, IVehicleRepository vehicleRepository)
     {
         _vehicleService = vehicleService;
+        _vehicleRepository = vehicleRepository;
     }
 
     [HttpGet]
@@ -57,6 +63,30 @@ public class VehicleController : ControllerBase
     public IActionResult Update([FromBody] VehicleDTO vehicle, Guid id)
     {
         var updatedVehicle = _vehicleService.Update(vehicle, id);
+        return Ok(updatedVehicle);
+    }
+
+    [HttpPatch("{id}")]
+    [Authorize(Permissions.Vehicle.Edit)]
+    public async Task<IActionResult> PartialUpdate(
+        Guid id,
+        JsonPatchDocument<VehicleDTO> patchDocument
+    )
+    {
+        var vehicle = await _vehicleRepository.FindAsync(x => x.Id == id);
+        if (vehicle == null)
+        {
+            return NotFound();
+        }
+
+        var vehicleToPatch = vehicle.Parse<Vehicle, VehicleDTO>();
+        patchDocument.ApplyTo(vehicleToPatch, ModelState);
+        if (!TryValidateModel(vehicleToPatch))
+        {
+            return ValidationProblem(ModelState);
+        }
+
+        var updatedVehicle = _vehicleService.PartialUpdate(vehicleToPatch, id);
         return Ok(updatedVehicle);
     }
 

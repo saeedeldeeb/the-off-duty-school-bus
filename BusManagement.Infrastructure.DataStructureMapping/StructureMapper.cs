@@ -35,7 +35,7 @@ public static class StructureMapper
             cfg.CreateMap<BrandDTO, VehicleBrand>()
                 .ForMember(dest => dest.Translations, opt => opt.MapFrom(src => src.Translations));
 
-            cfg.CreateMap<VehicleDTO, Vehicle>();
+            cfg.CreateMap<VehicleDTO, Vehicle>().ReverseMap();
             cfg.CreateMap<Vehicle, VehicleVM>();
         });
 

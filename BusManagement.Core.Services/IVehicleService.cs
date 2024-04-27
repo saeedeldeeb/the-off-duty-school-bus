@@ -11,5 +11,6 @@ public interface IVehicleService
     Task<VehicleVM> GetById(Guid id);
     VehicleVM Add(VehicleDTO vehicle);
     VehicleVM Update(VehicleDTO vehicle, Guid id);
+    VehicleVM PartialUpdate(VehicleDTO vehicle, Guid id);
     void Delete(Guid id);
 }

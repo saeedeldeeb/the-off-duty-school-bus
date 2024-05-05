@@ -25,10 +25,7 @@ public class OffDutyRepository : BaseRepository<OffDuty>, IOffDutyRepository
         ArgumentNullException.ThrowIfNull(parameters);
 
         var offDuties = _context.OffDuties.AsQueryable();
-        if (
-            !string.IsNullOrWhiteSpace(parameters.VehicleId.ToString())
-            || parameters.VehicleId != Guid.Empty
-        )
+        if (parameters.VehicleId != null)
         {
             offDuties = offDuties.Where(v => v.VehicleId.ToString().Equals(parameters.VehicleId));
         }

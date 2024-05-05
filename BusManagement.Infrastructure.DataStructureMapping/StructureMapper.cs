@@ -37,6 +37,9 @@ public static class StructureMapper
 
             cfg.CreateMap<VehicleDTO, Vehicle>().ReverseMap();
             cfg.CreateMap<Vehicle, VehicleVM>();
+
+            cfg.CreateMap<OffDutyDTO, OffDuty>().ReverseMap();
+            cfg.CreateMap<OffDuty, OffDutyVM>();
         });
 
         _mapper = config.CreateMapper();

@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\BusManagement.Core.DataModel\BusManagement.Core.DataModel.csproj" />
+      <ProjectReference Include="..\BusManagement.Core.Repositories\BusManagement.Core.Repositories.csproj" />
     </ItemGroup>
 
 </Project>

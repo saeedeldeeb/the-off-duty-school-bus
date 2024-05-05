@@ -6,6 +6,7 @@ public class OffDuty : IEntity<Guid>, ICreatingTimeStamp, IUpdatingTimeStamp
 {
     public Guid Id { get; set; }
     public Guid VehicleId { get; set; }
+    public Vehicle Vehicle { get; set; }
     public TimeOnly FromTime { get; set; }
     public TimeOnly ToTime { get; set; }
     public DateOnly FromDate { get; set; }

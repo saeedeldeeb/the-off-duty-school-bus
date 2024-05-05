@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Serialization;
 
 namespace BusManagement.Presentation.API;
 
@@ -66,7 +67,14 @@ public static class StartupExtensions
                 };
             });
 
-        builder.Services.AddControllers();
+        builder
+            .Services.AddControllers()
+            .AddNewtonsoftJson(setupAction =>
+            {
+                setupAction.SerializerSettings.ContractResolver =
+                    new CamelCasePropertyNamesContractResolver();
+            });
+        builder.Services.AddDateOnlyTimeOnlyStringConverters();
         builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
         builder.Services.AddDistributedMemoryCache();
         builder
@@ -129,6 +137,7 @@ public static class StartupExtensions
                     }
                 }
             );
+            opt.UseDateOnlyTimeOnlyStringConverters();
         });
         return builder.Build();
     }

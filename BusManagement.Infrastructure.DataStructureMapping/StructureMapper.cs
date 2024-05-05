@@ -29,9 +29,17 @@ public static class StructureMapper
                                 .Result.Name
                         )
                 );
+
             cfg.CreateMap<TranslationDTO, VehicleBrandTranslation>();
+
             cfg.CreateMap<BrandDTO, VehicleBrand>()
                 .ForMember(dest => dest.Translations, opt => opt.MapFrom(src => src.Translations));
+
+            cfg.CreateMap<VehicleDTO, Vehicle>().ReverseMap();
+            cfg.CreateMap<Vehicle, VehicleVM>();
+
+            cfg.CreateMap<OffDutyDTO, OffDuty>().ReverseMap();
+            cfg.CreateMap<OffDuty, OffDutyVM>();
         });
 
         _mapper = config.CreateMapper();

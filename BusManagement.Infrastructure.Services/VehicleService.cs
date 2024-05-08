@@ -56,6 +56,7 @@ public class VehicleService : IVehicleService
     public VehicleVM Update(VehicleDTO vehicle, Guid id)
     {
         var vehicleEntity = vehicle.Parse<VehicleDTO, Vehicle>();
+        vehicleEntity.Id = id;
         var updatedVehicle = _vehicleRepository.Update(vehicleEntity, id);
         _unitOfWork.Complete();
 

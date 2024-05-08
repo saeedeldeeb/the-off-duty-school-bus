@@ -55,6 +55,7 @@ public class OffDutiesService : IOffDutiesService
     public OffDutyVM Update(OffDutyDTO offDuty, Guid id)
     {
         var offDutyEntity = offDuty.Parse<OffDutyDTO, OffDuty>();
+        offDutyEntity.Id = id;
         var updatedOffDuty = _offDutyRepository.Update(offDutyEntity, id);
         _unitOfWork.Complete();
 

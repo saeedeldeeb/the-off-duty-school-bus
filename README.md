@@ -2,7 +2,7 @@
 
 ## Description
 The Off-duty School Bus project is a platform designed to provide companies with convenient and reliable transportation solutions for their employees during holidays and off-duty periods.
-
+[View Project Business](https://docs.google.com/document/d/1kZR8RkIcg5Hy85qLa82BHmrdFGapr3i_i6pY14C8E4s/edit?usp=sharing)
 ## Techs:
 
 - C#/.Net Core 8

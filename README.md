@@ -67,9 +67,6 @@ An overview of the Off Duty Bus API.
     <a href="mailto:saeedeldeeb1@gmail.com">Email</a>
   </li>
   <li>
-    <a href="https://amrelmohamady.hashnode.dev/" target="_blank" >Blog & Personal site (hashnode)</a>
-  </li>
-  <li>
     <a href="https://dev.to/saeedeldeeb" target="_blank" >Blog (dev.to)</a>
   </li>
 </ul>

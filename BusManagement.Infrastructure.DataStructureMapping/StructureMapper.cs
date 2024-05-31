@@ -71,6 +71,33 @@ public static class StructureMapper
                     dest => dest.EndPoint,
                     opt => opt.MapFrom(src => $"{src.EndPoint.Y},{src.EndPoint.X}") // Convert to string in 'lat,lng' format for the ViewModel.
                 );
+
+            cfg.CreateMap<UserDTO, ApplicationUser>().ReverseMap();
+            cfg.CreateMap<ApplicationUser, UserVM>();
+
+            cfg.CreateMap<SchoolDTO, School>()
+                .ForMember(
+                    dest => dest.Location,
+                    opt => opt.ConvertUsing(new StringToPointConverter(), src => src.Location)
+                )
+                .ReverseMap();
+            cfg.CreateMap<School, SchoolVM>()
+                .ForMember(
+                    dest => dest.Location,
+                    opt => opt.MapFrom(src => $"{src.Location.Y},{src.Location.X}") // Convert to string in 'lat,lng' format for the ViewModel.
+                );
+
+            cfg.CreateMap<CompanyDTO, Company>()
+                .ForMember(
+                    dest => dest.Location,
+                    opt => opt.ConvertUsing(new StringToPointConverter(), src => src.Location)
+                )
+                .ReverseMap();
+            cfg.CreateMap<Company, CompanyVM>()
+                .ForMember(
+                    dest => dest.Location,
+                    opt => opt.MapFrom(src => $"{src.Location.Y},{src.Location.X}") // Convert to string in 'lat,lng' format for the ViewModel.
+                );
         });
 
         _mapper = config.CreateMapper();

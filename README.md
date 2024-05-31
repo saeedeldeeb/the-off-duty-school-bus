@@ -20,6 +20,7 @@ An overview of the Off Duty Bus API.
     - Identity for authentication
     - Signup
     - Login
+    - Profile - Get, Update, Upload Profile Picture
 
 - **User Management:**
     - Roles

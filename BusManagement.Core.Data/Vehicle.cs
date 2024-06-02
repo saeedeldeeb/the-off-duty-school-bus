@@ -11,6 +11,7 @@ public class Vehicle : IEntity<Guid>, ICreatingTimeStamp, IUpdatingTimeStamp
 
     [ForeignKey(nameof(BrandId))]
     public VehicleBrand Brand { get; set; }
+    public ICollection<OffDuty>? OffDuties { get; set; }
     public int Capacity { get; set; }
     public DateOnly Year { get; set; }
     public DateTime CreationDateTime { get; set; }

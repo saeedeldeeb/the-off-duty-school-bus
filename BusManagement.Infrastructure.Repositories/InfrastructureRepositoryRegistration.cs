@@ -19,6 +19,7 @@ public static class InfrastructureRepositoryRegistration
         services.AddScoped<IOffDutyResourceParameters, OffDutyResourceParameters>();
         services.AddScoped<ITripRepository, TripRepository>();
         services.AddScoped<ITripResourceParameters, TripResourceParameters>();
+        services.AddScoped<IVehiclesForRentResourceParameters, VehiclesForRentResourceParameters>();
         return services;
     }
 }

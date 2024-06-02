@@ -98,6 +98,8 @@ public static class StructureMapper
                     dest => dest.Location,
                     opt => opt.MapFrom(src => $"{src.Location.Y},{src.Location.X}") // Convert to string in 'lat,lng' format for the ViewModel.
                 );
+
+            cfg.CreateMap<Vehicle, VehiclesForRentVM>();
         });
 
         _mapper = config.CreateMapper();

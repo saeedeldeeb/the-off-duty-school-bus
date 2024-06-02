@@ -43,6 +43,7 @@ An overview of the Off Duty Bus API.
     - Get School Vehicle
     - Update School Vehicle
     - Delete School Vehicle
+    - Filtered List School Vehicles for rent
 
 ## About the APP:
 - **Architecture Pattern:**

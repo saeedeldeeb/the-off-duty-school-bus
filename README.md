@@ -54,6 +54,10 @@ An overview of the Off Duty Bus API.
   
     Code Style with CSharpier.
 
+- **Payment Gateway:**
+
+  The project supports for now stripe payment gateway.
+
 - **Multi-Language:**
 
   This project is designed to support multiple languages for dynamic content in the database, such as Vehicle Brands and others. The implementation is customized, involving the creation of a new table for each entity that requires multi-language support. Each of these tables includes a language code and value.

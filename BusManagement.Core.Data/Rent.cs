@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using BusManagement.Core.Common.Enums;
 using BusManagement.Core.Data.Base;
 
@@ -9,7 +10,9 @@ public class Rent : IEntity<Guid>, ICreatingTimeStamp, IUpdatingTimeStamp
     public DateTime From { get; set; }
     public DateTime To { get; set; }
     public Guid VehicleId { get; set; }
-    public Guid UserId { get; set; }
+    public string UserId { get; set; }
+
+    [ForeignKey(nameof(UserId))]
     public ApplicationUser User { get; set; }
     public RentStatusEnum Status { get; set; }
     public DateTime CreationDateTime { get; set; }

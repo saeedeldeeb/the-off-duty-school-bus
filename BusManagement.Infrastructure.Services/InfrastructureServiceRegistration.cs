@@ -1,4 +1,6 @@
 using BusManagement.Core.Services;
+using BusManagement.Core.Services.PaymentServices;
+using BusManagement.Infrastructure.Services.PaymentServices;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BusManagement.Infrastructure.Services;
@@ -13,6 +15,7 @@ public static class InfrastructureServiceRegistration
         services.AddScoped<IOffDutiesService, OffDutiesService>();
         services.AddScoped<ITripsService, TripsService>();
         services.AddScoped<IProfileService, ProfileService>();
+        services.AddScoped<IStripeService, StripeService>();
         return services;
     }
 }

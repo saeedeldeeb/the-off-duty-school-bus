@@ -16,6 +16,7 @@ using Microsoft.Extensions.Localization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
+using Stripe;
 
 namespace BusManagement.Presentation.API;
 
@@ -84,6 +85,21 @@ public static class StartupExtensions
                 options.DataAnnotationLocalizerProvider = (_, factory) =>
                     factory.Create(typeof(JsonStringLocalizerFactory));
             });
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy(
+                "AllowAll",
+                corsPolicyBuilder =>
+                {
+                    corsPolicyBuilder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                }
+            );
+        });
+        // Add Stripe Services
+        builder.Services.AddSingleton<TokenService>();
+        builder.Services.AddSingleton<CustomerService>();
+        builder.Services.AddSingleton<ChargeService>();
+        StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
         // Add services to the container.
         StructureMapper.Initialize();
         builder.Services.AddAutoMapper(typeof(Program).Assembly);

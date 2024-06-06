@@ -10,4 +10,7 @@ public interface IVehicleRepository : IBaseRepository<Vehicle>
     public Task<PagedList<Vehicle>> GetAllWithParametersAsync(
         IVehicleResourceParameters parameters
     );
+    public Task<PagedList<Vehicle>> GetVehiclesForRentAsync(
+        IVehiclesForRentResourceParameters parameters
+    );
 }

@@ -34,6 +34,21 @@ public class VehicleService : IVehicleService
         );
     }
 
+    public async Task<PagedList<VehiclesForRentVM>> GetVehiclesForRent(
+        IVehiclesForRentResourceParameters parameters
+    )
+    {
+        var pagedVehicles = await _vehicleRepository.GetVehiclesForRentAsync(parameters);
+        var vehicles = pagedVehicles.Parse<IEnumerable<Vehicle>, IEnumerable<VehiclesForRentVM>>();
+
+        return PagedList<VehiclesForRentVM>.CreateAsync(
+            vehicles,
+            pagedVehicles.TotalCount,
+            pagedVehicles.CurrentPage,
+            pagedVehicles.PageSize
+        );
+    }
+
     public async Task<VehicleVM> GetById(Guid id)
     {
         var vehicle = await _vehicleRepository.FindAsync(x => x.Id == id, ["Brand.Translations"]);

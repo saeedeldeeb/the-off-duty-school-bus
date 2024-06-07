@@ -20,6 +20,7 @@ public static class InfrastructureRepositoryRegistration
         services.AddScoped<ITripRepository, TripRepository>();
         services.AddScoped<ITripResourceParameters, TripResourceParameters>();
         services.AddScoped<IVehiclesForRentResourceParameters, VehiclesForRentResourceParameters>();
+        services.AddScoped<IRentRepository, RentRepository>();
         return services;
     }
 }

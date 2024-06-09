@@ -67,8 +67,7 @@ public class PaymentController : ControllerBase
     public async Task<IActionResult> Index()
     {
         // This is your Stripe CLI webhook secret for testing your endpoint locally.
-        const string endpointSecret =
-            "whsec_82f52c02970bd22d31421d1acacb75277781efa44aad4370bcde16a1f5dbb932";
+        const string endpointSecret = "test_secret_...";
 
         var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
         try

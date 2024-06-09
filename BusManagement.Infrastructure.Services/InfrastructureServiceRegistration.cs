@@ -16,6 +16,7 @@ public static class InfrastructureServiceRegistration
         services.AddScoped<ITripsService, TripsService>();
         services.AddScoped<IProfileService, ProfileService>();
         services.AddScoped<IStripeService, StripeService>();
+        services.AddScoped<IRentService, RentService>();
         return services;
     }
 }

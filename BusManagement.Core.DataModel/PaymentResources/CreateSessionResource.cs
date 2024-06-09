@@ -7,6 +7,7 @@ public record CreateSessionResource(
     string ProductName,
     string Mode,
     string CustomerEmail,
+    Dictionary<string, string>? Metadata = null,
     string SuccessUrl = "https://example.com/success",
     string CancelUrl = "https://example.com/cancel"
 );

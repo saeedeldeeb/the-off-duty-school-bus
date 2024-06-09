@@ -1,6 +1,10 @@
+using System.Security.Claims;
+using BusManagement.Core.Common.Enums;
 using BusManagement.Core.DataModel.PaymentResources;
+using BusManagement.Core.Services;
 using BusManagement.Core.Services.PaymentServices;
 using Microsoft.AspNetCore.Mvc;
+using Stripe;
 
 namespace BusManagement.Presentation.API.Controllers;
 
@@ -9,18 +13,31 @@ namespace BusManagement.Presentation.API.Controllers;
 public class PaymentController : ControllerBase
 {
     private readonly IStripeService _stripeService;
+    private readonly IRentService _rentService;
 
-    public PaymentController(IStripeService stripeService)
+    public PaymentController(IStripeService stripeService, IRentService rentService)
     {
         _stripeService = stripeService;
+        _rentService = rentService;
     }
 
     [HttpPost("session")]
     public async Task<ActionResult<SessionResource>> CreateCheckoutSession(
-        [FromBody] CreateSessionResource resource,
+        Guid rentId,
         CancellationToken cancellationToken
     )
     {
+        var resource = new CreateSessionResource(
+            PaymentMethodTypes: "card",
+            UnitAmount: 100,
+            Currency: "usd",
+            ProductName: "Bus Rent",
+            Mode: "payment",
+            CustomerEmail: User.FindFirstValue(ClaimTypes.Email) ?? "",
+            Metadata: new Dictionary<string, string> { { "rentId", rentId.ToString() } },
+            SuccessUrl: "https://example.com/success",
+            CancelUrl: "https://example.com/cancel"
+        );
         var response = await _stripeService.CreateCheckoutSession(resource, cancellationToken);
         return Ok(response);
     }
@@ -43,5 +60,47 @@ public class PaymentController : ControllerBase
     {
         var response = await _stripeService.CreateCharge(resource, cancellationToken);
         return Ok(response);
+    }
+
+    [HttpPost("webhook")]
+    [ApiExplorerSettings(IgnoreApi = true)]
+    public async Task<IActionResult> Index()
+    {
+        // This is your Stripe CLI webhook secret for testing your endpoint locally.
+        const string endpointSecret = "test_secret_...";
+
+        var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
+        try
+        {
+            var stripeEvent = EventUtility.ConstructEvent(
+                json,
+                Request.Headers["Stripe-Signature"],
+                endpointSecret,
+                throwOnApiVersionMismatch: false
+            );
+            // Handle the event
+            if (stripeEvent.Type == Events.PaymentIntentSucceeded)
+            {
+                var paymentIntent = stripeEvent.Data.Object as PaymentIntent;
+                await _rentService.UpdateRentStatusAsync(
+                    Guid.Parse(
+                        paymentIntent?.Metadata.GetValueOrDefault("rentId") ?? Guid.Empty.ToString()
+                    ),
+                    RentStatusEnum.Succeeded
+                );
+            }
+            // ... handle other event types
+            else
+            {
+                Console.WriteLine("Unhandled event type: {0}", stripeEvent.Type);
+            }
+
+            return Ok();
+        }
+        catch (StripeException e)
+        {
+            Console.WriteLine("Failed to handle event: {0}", e.Message);
+            return BadRequest();
+        }
     }
 }

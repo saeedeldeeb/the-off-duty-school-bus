@@ -4,7 +4,6 @@ using BusManagement.Core.Data.MultiLingualObjects;
 using BusManagement.Core.DataModel.DTOs;
 using BusManagement.Core.DataModel.ViewModels;
 using BusManagement.Infrastructure.DataStructureMapping.Converters;
-using NetTopologySuite.Geometries;
 
 namespace BusManagement.Infrastructure.DataStructureMapping;
 
@@ -100,6 +99,9 @@ public static class StructureMapper
                 );
 
             cfg.CreateMap<Vehicle, VehiclesForRentVM>();
+
+            cfg.CreateMap<RentDTO, Rent>();
+            cfg.CreateMap<Rent, RentVM>();
         });
 
         _mapper = config.CreateMapper();

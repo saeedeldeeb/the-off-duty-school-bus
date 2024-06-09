@@ -41,6 +41,7 @@ public class StripeService : IStripeService
                         ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
                             Name = resource.ProductName,
+                            Metadata = resource.Metadata,
                         },
                     },
                     Quantity = 1,

@@ -56,7 +56,7 @@ An overview of the Off Duty Bus API.
 
 - **Payment Gateway:**
 
-  The project supports for now stripe payment gateway.
+  The project supports for now stripe payment gateway and webhook was tested locally with stripe CLI.
 
 - **Multi-Language:**
 

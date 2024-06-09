@@ -1,3 +1,4 @@
+using BusManagement.Core.Common.Enums;
 using BusManagement.Core.Data;
 using BusManagement.Core.DataModel.DTOs;
 using BusManagement.Core.DataModel.ViewModels;
@@ -36,5 +37,17 @@ public class RentService : IRentService
         await _unitOfWork.CompleteAsync();
 
         return updatedRent.Parse<Rent, RentVM>();
+    }
+
+    public async Task UpdateRentStatusAsync(Guid id, RentStatusEnum status)
+    {
+        var rent = await _rentRepository.GetByIdAsync(id);
+        if (rent == null)
+        {
+            throw new KeyNotFoundException($"Rent with id {id} not found");
+        }
+        rent.Status = status;
+        _rentRepository.Update(rent, id);
+        await _unitOfWork.CompleteAsync();
     }
 }

@@ -1,8 +1,6 @@
-using System.Text;
 using BusManagement.Infrastructure.RabbitMQ.Bases;
 using BusManagement.Infrastructure.RabbitMQ.Events;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using RabbitMQ.Client;
 
 namespace BusManagement.Infrastructure.RabbitMQ;

@@ -57,7 +57,7 @@ An overview of the Off Duty Bus API.
 
 - **Payment Gateway:**
 
-  The project supports for now stripe payment gateway and webhook was tested locally with stripe CLI.
+  The project supports for now stripe payment gateway and webhook was tested locally with stripe CLI. [Client script to test stripe](https://gist.github.com/saeedeldeeb/7f14bab4c1fae7c65a1788b3ce78ee7c)
 
 - **RabbitMQ:**
 

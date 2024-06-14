@@ -9,6 +9,7 @@ The Off-duty School Bus project is a platform designed to provide companies with
 - Sql Server
 - Docker
 - Documented with Swagger
+- RabbitMQ
 
 ## Features:
 
@@ -57,6 +58,10 @@ An overview of the Off Duty Bus API.
 - **Payment Gateway:**
 
   The project supports for now stripe payment gateway and webhook was tested locally with stripe CLI.
+
+- **RabbitMQ:**
+
+  The project uses RabbitMQ for starting a background job for tracking the bus location when trip started.
 
 - **Multi-Language:**
 

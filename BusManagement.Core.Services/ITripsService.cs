@@ -12,4 +12,5 @@ public interface ITripsService
     TripVM Add(TripDTO trip);
     TripVM Update(TripDTO trip, Guid id);
     void Delete(Guid id);
+    void StartTrip(Guid id);
 }

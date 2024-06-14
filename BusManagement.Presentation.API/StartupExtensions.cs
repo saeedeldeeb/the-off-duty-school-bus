@@ -4,6 +4,7 @@ using BusManagement.Core.Common.Helpers;
 using BusManagement.Core.Data;
 using BusManagement.Infrastructure.Context;
 using BusManagement.Infrastructure.DataStructureMapping;
+using BusManagement.Infrastructure.RabbitMQ;
 using BusManagement.Infrastructure.Repositories;
 using BusManagement.Infrastructure.Services;
 using BusManagement.Presentation.API.Filters;
@@ -26,6 +27,7 @@ public static class StartupExtensions
     {
         builder.Services.AddInfrastructureServices();
         builder.Services.AddInfrastructureRepositories();
+        builder.Services.AddInfrastructureRabbitMq(builder.Configuration["RabbitMq:Uri"]);
         builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
         builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
         var connectionString =

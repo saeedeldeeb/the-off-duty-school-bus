@@ -14,7 +14,7 @@ public class TripProducer : ProducerBase<TripStarted>
     )
         : base(connectionFactory, logger, producerBaseLogger) { }
 
-    protected override string ExchangeName => VirtualHost + ".TripExchange";
+    protected override string ExchangeName => "events";
     protected override string RoutingKeyName => "trip.started";
     protected override string AppId => "TripProducer";
 }

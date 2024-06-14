@@ -1,4 +1,5 @@
 using BusManagement.Core.Common.Helpers;
+using BusManagement.Core.Common.MessageBroker;
 using BusManagement.Core.Data;
 using BusManagement.Core.DataModel.DTOs;
 using BusManagement.Core.DataModel.ViewModels;
@@ -7,18 +8,25 @@ using BusManagement.Core.Repositories.Base;
 using BusManagement.Core.Repositories.ResourceParameters;
 using BusManagement.Core.Services;
 using BusManagement.Infrastructure.DataStructureMapping;
+using BusManagement.Infrastructure.RabbitMQ.Events;
 
 namespace BusManagement.Infrastructure.Services;
 
 public class TripsService : ITripsService
 {
+    private readonly IRabbitMqProducer<TripStarted> _tripProducer;
     private readonly ITripRepository _tripRepository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public TripsService(ITripRepository tripRepository, IUnitOfWork unitOfWork)
+    public TripsService(
+        ITripRepository tripRepository,
+        IUnitOfWork unitOfWork,
+        IRabbitMqProducer<TripStarted> tripProducer
+    )
     {
         _tripRepository = tripRepository;
         _unitOfWork = unitOfWork;
+        _tripProducer = tripProducer;
     }
 
     public async Task<PagedList<TripVM>> GetAll(ITripResourceParameters parameters)
@@ -73,5 +81,24 @@ public class TripsService : ITripsService
 
         _tripRepository.Delete(trip);
         _unitOfWork.Complete();
+    }
+
+    public void StartTrip(Guid id)
+    {
+        var trip = _tripRepository.GetById(id);
+        if (trip == null)
+        {
+            throw new Exception("Trip not found");
+        }
+
+        var tripStarted = new TripStarted
+        {
+            TripId = trip.Id,
+            BusId = trip.VehicleId ?? Guid.Empty,
+            StartTime = DateTime.Now,
+            StartLocation = trip.StartPoint.ToString(),
+            EndLocation = trip.EndPoint.ToString()
+        };
+        _tripProducer.Publish(tripStarted);
     }
 }

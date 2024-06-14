@@ -67,4 +67,11 @@ public class TripController : ControllerBase
         _tripService.Delete(id);
         return NoContent();
     }
+
+    [HttpPost("{id:guid}/start")]
+    public IActionResult StartTrip(Guid id)
+    {
+        _tripService.StartTrip(id);
+        return NoContent();
+    }
 }

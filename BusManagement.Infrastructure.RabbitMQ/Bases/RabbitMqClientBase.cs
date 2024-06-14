@@ -5,10 +5,9 @@ namespace BusManagement.Infrastructure.RabbitMQ.Bases;
 
 public abstract class RabbitMqClientBase : IDisposable
 {
-    protected const string VirtualHost = "CUSTOM_HOST";
-    protected const string LoggerExchange = $"{VirtualHost}.LoggerExchange";
-    protected const string LoggerQueue = $"{VirtualHost}.log.message";
-    protected const string LoggerQueueAndExchangeRoutingKey = "log.message";
+    protected const string LoggerExchange = "events";
+    protected const string LoggerQueue = "offduty.default.queue";
+    protected const string LoggerQueueAndExchangeRoutingKey = "trip.started";
 
     protected IModel? Channel { get; private set; }
     private IConnection? _connection;
@@ -37,7 +36,7 @@ public abstract class RabbitMqClientBase : IDisposable
         Channel = _connection.CreateModel();
         Channel.ExchangeDeclare(
             exchange: LoggerExchange,
-            type: "direct",
+            type: "topic",
             durable: true,
             autoDelete: false
         );

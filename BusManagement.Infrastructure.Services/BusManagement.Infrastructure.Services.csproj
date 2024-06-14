@@ -11,6 +11,7 @@
       <ProjectReference Include="..\BusManagement.Core.Services\BusManagement.Core.Services.csproj" />
       <ProjectReference Include="..\BusManagement.Infrastructure.Context\BusManagement.Infrastructure.Context.csproj" />
       <ProjectReference Include="..\BusManagement.Infrastructure.DataStructureMapping\BusManagement.Infrastructure.DataStructureMapping.csproj" />
+      <ProjectReference Include="..\BusManagement.Infrastructure.RabbitMQ\BusManagement.Infrastructure.RabbitMQ.csproj" />
     </ItemGroup>
 
     <ItemGroup>
